@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Slab&family=Roboto:wght@400;900&display=swap');
+
+* :not(input) {
+    cursor: context-menu;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
+
+header {
+    background: #F5F5F6;
+    display: flex;
+}
+
+nav {
+    justify-content: center;
+}
+
+.navbar-img {
+    position: absolute;
+    width: 89px;
+    height: 23px;
+    left: 100px;
+    top: 15px;
+}
+
+.nav-list li {
+    list-style: none;
+    margin: 25px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    color: #959BA4;
+
+}
+
+.nav-list {
+    display: flex;
+    margin-left: 300px;
+}
+
+button {
+    position: absolute;
+    width: 58px;
+    height: 33px;
+    right: 60px;
+    top: 10px;
+    background: #FFFFFF;
+    border-radius: 4px;
+}
+
+.login-txt {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.06em;
+}
+
+
+/* Main css */
+
+main {
+    padding-left: 300px;
+    padding-right: 300px;
+}
+
+.header-txt {
+    margin-top: 100px;
+    font-family: "Roboto";
+}
+
+
+.input-div {
+    margin-top: 90px;
+}
+
+.input-div p {
+    color: #9F9F9F;
+    width: 120px;
+    height: 28px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.currency-list,
+.currency-list-output {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    list-style: none;
+    color: #C6C6C6;
+    display: flex;
+    height: 25px;
+    align-items: center;
+}
+
+.currency-list li,
+.currency-list-output li {
+    padding: 10px;
+    border: 1px solid #E5E5E5;
+}
+
+.first-li {
+    border-radius: 3px 0px 0px 3px;
+}
+
+.last-li {
+    border-radius: 0px 3px 3px 0px;
+}
+
+.input-section,
+.output-section {
+    border: 1px solid #E5E5E5;
+    border-radius: 3px;
+    margin-top: 25px;
+    width: 259px;
+    height: 102px;
+}
+
+
+.output-div {
+    margin-top: 90px;
+    margin-left: 300px;
+}
+
+#input {
+    border: none;
+    width: 124px;
+    height: 38px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    margin-top: 15px;
+    margin-left: 15px;
+    color: #000000;
+}
+
+.selected-curr {
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
+
+
+
+/* output div */
+
+.converter-div {
+    display: flex;
+}
+
+.output-div p {
+    color: #9F9F9F;
+    width: 120px;
+    height: 28px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.currency-list-output {
+    list-style: none;
+    top: 100px;
+
+}
+
+p.converted-curr {
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 167px;
+    height: 42px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    color: #000000;
+}
+
+.bold {
+    font-style: bold;
+    color: black
+}
+
+
+.select-curr {
+    background-color: #833AE0;
+    color: white;
+}
