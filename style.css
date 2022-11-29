@@ -13,6 +13,10 @@
     /* Standard syntax */
 }
 
+body {
+    background-image: url(https://github.blog/wp-content/uploads/2020/12/102393310-07478b80-3f8d-11eb-84eb-392d555ebd29.png?resize=1200%2C630);
+}
+
 header {
     background: #F5F5F6;
     display: flex;
@@ -72,8 +76,12 @@ button {
 /* Main css */
 
 main {
+    background-color: white;
     padding-left: 300px;
     padding-right: 300px;
+    padding-bottom: 20px;
+    backdrop-filter: blur(30px);
+    border-radius: 45px;
 }
 
 .header-txt {
@@ -214,7 +222,7 @@ p.converted-curr {
 }
 
 
-.nav-li-black{
+.nav-li-black {
     color: #000000;
     font-style: bold;
 }
