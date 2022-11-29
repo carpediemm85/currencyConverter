@@ -88,7 +88,7 @@ main {
 
 .input-div p {
     color: #9F9F9F;
-    width: 120px;
+    width: 160px;
     height: 28px;
     font-family: 'Roboto';
     font-style: normal;
@@ -116,11 +116,11 @@ main {
     border: 1px solid #E5E5E5;
 }
 
-.first-li {
+.input-first-li {
     border-radius: 3px 0px 0px 3px;
 }
 
-.last-li {
+.input-last-li {
     border-radius: 0px 3px 3px 0px;
 }
 
@@ -169,7 +169,7 @@ main {
 
 .output-div p {
     color: #9F9F9F;
-    width: 120px;
+    width: 160px;
     height: 28px;
     font-family: 'Roboto';
     font-style: normal;
@@ -207,3 +207,5 @@ p.converted-curr {
     background-color: #833AE0;
     color: white;
 }
+
+
