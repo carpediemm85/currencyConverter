@@ -1,5 +1,6 @@
 const navLi = document.querySelectorAll(".nav-list > li");
 const rates = document.querySelector(".selected-curr");
+const rates1 = document.querySelector(".selected-curr1");
 
 const inputRub = document.querySelector(".input-first-li");
 const inputUsd = document.querySelector('.input-usd')
@@ -11,11 +12,16 @@ const otpUsd = document.querySelector('.output-usd')
 const otpEur = document.querySelector('.output-eur')
 const otpGbp = document.querySelector('.output-last-li')
 
+const btn1 = document.querySelectorAll('.currency-list')
+const btn2 = document.querySelectorAll('.currency-list-output')
 
-//                left side
 
-inputRub.addEventListener("click", () => {
-  fetch("https://api.exchangerate.host/latest?base=RUB&symbols=USD ")
+//               left side
+
+
+
+inputRub.addEventListener("click", (e) => {
+  fetch(`https://api.exchangerate.host/latest?base=${e.target.textContent}&symbols=${otpRub.textContent} `)
     .then((response) => {
       return response.json();
     })
@@ -31,7 +37,6 @@ inputRub.addEventListener("click", () => {
     inputEur.classList.remove("select-curr");
     inputGbp.classList.remove("select-curr");
     inputUsd.classList.remove("select-curr");
-
 
 
   });
@@ -113,7 +118,7 @@ otpRub.addEventListener("click", () => {
       return response.json();
     })
     .then((data) => {
-      rates.textContent = "1 RUB = " + data.rates.USD +' USD';
+      rates1.textContent = "1 RUB = " + data.rates.USD +' USD';
     });
     
     //change design of button
@@ -134,7 +139,7 @@ otpUsd.addEventListener("click", () => {
       return response.json();
     })
     .then((data) => {
-      rates.textContent = "1 USD = " + data.rates.RUB + ' RUB';
+      rates1.textContent = "1 USD = " + data.rates.RUB + ' RUB';
     });
     
 
@@ -151,13 +156,12 @@ otpUsd.addEventListener("click", () => {
 
 
 otpEur.addEventListener("click", () => {
-
   fetch("https://api.exchangerate.host/latest?base=EUR&symbols=RUB ")
     .then((response) => {
       return response.json();
     })
     .then((data) => {
-      rates.textContent = "1 EUR = " + data.rates.RUB + ' RUB';
+      rates1.textContent = "1 EUR = " + data.rates.RUB + ' RUB';
     });
     
     otpEur.classList.add("select-curr");
@@ -170,13 +174,15 @@ otpEur.addEventListener("click", () => {
 
 
 
+
+ 
 otpGbp.addEventListener("click", () => {
   fetch("https://api.exchangerate.host/latest?base=GBP&symbols=RUB ")
     .then((response) => {
       return response.json();
     })
     .then((data) => {
-      rates.textContent = "1 GBP = " + data.rates.RUB + ' RUB';
+      rates1.textContent = "1 GBP = " + data.rates.RUB + ' RUB';
       
     });
     

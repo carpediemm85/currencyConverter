@@ -1,84 +1,77 @@
-const bank = document.querySelector("#bank");
-const biznes = document.querySelector("#biznes");
-const invest = document.querySelector("#invest");
-const str = document.querySelector("#str");
-const mob = document.querySelector("#mob");
-const trav = document.querySelector("#trav");
-const fun = document.querySelector("#fun");
+const inputs = document.querySelectorAll('.left-li')
+const otps = document.querySelectorAll('.output-li')
+const rates = document.querySelector('.selected-curr')
+const rates1 = document.querySelector('.selected-curr1')
+const inputRate = document.getElementById('input')
+const converted = document.querySelector('.converted-curr')
 
-bank.addEventListener("click", () => {
-  bank.classList.add(".nav-li-black");
+inputs.forEach(item => {
+  console.log(item);
+  item.addEventListener('click', (e) => {
+    
+    isDeletedLeft()
+    e.target.classList.add("select-curr");
+    getLeftBtnText=item.innerHTML
+    getData("https://api.exchangerate.host/latest")
+    
 
-  biznes.classList.remove(".nav-li-black");
-  invest.classList.remove(".nav-li-black");
-  str.classList.remove(".nav-li-black");
-  mob.classList.remove(".nav-li-black");
-  trav.classList.remove(".nav-li-black");
-  fun.classList.remove(".nav-li-black");
-});
 
-biznes.addEventListener("click", () => {
-  biznes.classList.add(".nav-li-black");
 
-  bank.classList.remove(".nav-li-black");
-  invest.classList.remove(".nav-li-black");
-  str.classList.remove(".nav-li-black");
-  mob.classList.remove(".nav-li-black");
-  trav.classList.remove(".nav-li-black");
-  fun.classList.remove(".nav-li-black");
-});
 
-invest.addEventListener("click", () => {
-  invest.classList.add(".nav-li-black");
 
-  bank.classList.remove(".nav-li-black");
-  biznes.classList.remove(".nav-li-black");
-  str.classList.remove(".nav-li-black");
-  mob.classList.remove(".nav-li-black");
-  trav.classList.remove(".nav-li-black");
-  fun.classList.remove(".nav-li-black");
-});
+  })
+})
 
-str.addEventListener("click", () => {
-  str.classList.add(".nav-li-black");
 
-  bank.classList.remove(".nav-li-black");
-  invest.classList.remove(".nav-li-black");
-  biznes.classList.remove(".nav-li-black");
-  mob.classList.remove(".nav-li-black");
-  trav.classList.remove(".nav-li-black");
-  fun.classList.remove(".nav-li-black");
-});
+function isDeletedLeft() {
+  inputs.forEach(element=>{
+    element.classList.remove('select-curr')
+  });
+}
 
-mob.addEventListener("click", () => {
-  mob.classList.add(".nav-li-black");
 
-  bank.classList.remove(".nav-li-black");
-  invest.classList.remove(".nav-li-black");
-  biznes.classList.remove(".nav-li-black");
-  str.classList.remove(".nav-li-black");
-  trav.classList.remove(".nav-li-black");
-  fun.classList.remove(".nav-li-black");
-});
 
-trav.addEventListener("click", () => {
-  trav.classList.add(".nav-li-black");
 
-  bank.classList.remove(".nav-li-black");
-  invest.classList.remove(".nav-li-black");
-  biznes.classList.remove(".nav-li-black");
-  str.classList.remove(".nav-li-black");
-  mob.classList.remove(".nav-li-black");
-  fun.classList.remove(".nav-li-black");
-});
 
-fun.addEventListener("click", () => {
-  fun.classList.add(".nav-li-black");
 
-  bank.classList.remove(".nav-li-black");
-  invest.classList.remove(".nav-li-black");
-  biznes.classList.remove(".nav-li-black");
-  str.classList.remove(".nav-li-black");
-  mob.classList.remove(".nav-li-black");
-  trav.classList.remove(".nav-li-black");
-});
+
+otps.forEach(item => {
+  console.log(item);
+  item.addEventListener('click', (e) => {
+    
+    isDeletedRight()
+    e.target.classList.add("select-curr");
+    getRightBtnText = item.innerHTML
+    getData("https://api.exchangerate.host/latest")
+  })
+})
+
+
+function isDeletedRight() {
+  otps.forEach(element=>{
+    element.classList.remove('select-curr')
+  });
+}
+
+let getLeftBtnText = 'RUB'
+let getRightBtnText = 'USD'
+const defaultValue=5000
+getData("https://api.exchangerate.host/latest")
+
+
+async function getData(url){
+  const promis = await fetch(`${url}?base=${getLeftBtnText}&symbols=${getRightBtnText}`);
+  const promis1 = await fetch(`${url}?base=${getRightBtnText}&symbols=${getLeftBtnText}`);
+  const data = await promis.json()
+  console.log(data);
+  const data1 = await promis1.json()
+
+  rates.textContent = `1 ${getLeftBtnText} = ` + data.rates[`${getRightBtnText}`] + ` ${getRightBtnText}`;
+  rates1.textContent = `1 ${getRightBtnText} = ` + data1.rates[`${getLeftBtnText}`] + ` ${getLeftBtnText}`;
+  
+  converted.innerHTML = (inputRate.value?inputRate.value*data.rates[`${getRightBtnText}`]:defaultValue*data.rates[`${getRightBtnText}`]).toFixed(3)
+
+}
+
+
+//data.rates[`${getRightBtnText}`]
