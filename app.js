@@ -12,7 +12,7 @@ const otpEur = document.querySelector('.output-eur')
 const otpGbp = document.querySelector('.output-last-li')
 
 
-
+//                left side
 
 inputRub.addEventListener("click", () => {
   fetch("https://api.exchangerate.host/latest?base=RUB&symbols=USD ")
@@ -22,6 +22,8 @@ inputRub.addEventListener("click", () => {
     .then((data) => {
       rates.textContent = "1 RUB = " + data.rates.USD +' USD';
     });
+    
+    
     
     //change design of button
     inputRub.classList.add("select-curr");
@@ -100,6 +102,9 @@ inputGbp.addEventListener("click", () => {
 
 
 
+
+
+//                            right side
 
 
 otpRub.addEventListener("click", () => {
